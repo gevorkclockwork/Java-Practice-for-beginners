@@ -14,12 +14,12 @@ public class Task1 {
         long startTime2 = System.currentTimeMillis();
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < 20001; i++) {
-            stringBuilder.append(i + " ");
+            stringBuilder.append(i).append(" ");
         }
         System.out.println(stringBuilder);
         long stopTime2 = System.currentTimeMillis();
 
-        System.out.println("Длительность работы, в мс.: " + (stopTime1 - startTime1));
-        System.out.println("Длительность работы, в мс.: " + (stopTime2 - startTime2));
+        System.out.println("Длительность работы String, в мс.: " + (stopTime1 - startTime1));
+        System.out.println("Длительность работы StringBuilder, в мс.: " + (stopTime2 - startTime2));
     }
 }
