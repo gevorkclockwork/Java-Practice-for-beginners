@@ -2,6 +2,9 @@ package day11.task2;
 
 public class Shaman extends Hero implements PhysAttack, MagicAttack, Healer {
 
+    static final int HEAL_AMOUNT = 50;
+    static final int HEAL_TEAMMATE_AMOUNT = 30;
+
     public Shaman() {
         physAtt = 10;
         magicAtt = 15;
@@ -58,20 +61,25 @@ public class Shaman extends Hero implements PhysAttack, MagicAttack, Healer {
 
     @Override
     public int healHimself() {
-        return health += 50;
+        if (health + HEAL_AMOUNT > MAX_HEALTH) {
+            health = MAX_HEALTH;
+        } else {
+            health += HEAL_AMOUNT;
+        }
+        return health;
     }
 
     @Override
     public int healTeammate(Hero hero) {
-        if (hero.health == 100) {
+        if (hero.health == MAX_HEALTH) {
             return hero.health;
-        } else if (hero.health < 100) {
-            hero.health += 30;
-            if (hero.health > 100) {
-                hero.health = 100;
+        } else if (hero.health < MAX_HEALTH) {
+            hero.health += HEAL_TEAMMATE_AMOUNT;
+            if (hero.health > MAX_HEALTH) {
+                hero.health = MAX_HEALTH;
             }
         } else {
-            hero.health = 100;
+            hero.health = MAX_HEALTH;
         }
         return hero.health;
     }
