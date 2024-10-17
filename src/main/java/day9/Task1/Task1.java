@@ -11,6 +11,5 @@ public class Task1 {
         student.printInfo();
         teacher.printInfo();
 
-
     }
 }

@@ -1,9 +1,7 @@
 package day9.Task2;
 
 public class Triangle extends Figure {
-    private double length1;
-    private double length2;
-    private double length3;
+    private double length1, length2, length3;
 
     public Triangle(String color, double length1, double length2, double length3) {
         super(color);
@@ -14,7 +12,7 @@ public class Triangle extends Figure {
 
     @Override
     public double area() {
-        double halfPerimeter = (length1 + length2 + length3) / 2;
+        double halfPerimeter = perimeter() / 2;
         return Math.sqrt(halfPerimeter * ((halfPerimeter - length1) * (halfPerimeter - length2) * (halfPerimeter - length3)));
     }
 
