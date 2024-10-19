@@ -7,8 +7,8 @@ public class Task2 {
     public static void main(String[] args) {
 
         List<Integer> arrayList = new ArrayList<>();
-        fillTheList(0, 30, arrayList);
-        fillTheList(300, 350, arrayList);
+        Task2.fillTheList(0, 30, arrayList);
+        Task2.fillTheList(300, 350, arrayList);
         System.out.println(arrayList);
 
     }
