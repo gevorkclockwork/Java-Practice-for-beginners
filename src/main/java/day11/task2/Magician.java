@@ -9,30 +9,6 @@ public class Magician extends Hero implements PhysAttack, MagicAttack {
     }
 
     @Override
-    public int physicalAttack(Hero hero) {
-        if (hero.health > 0) {
-            if (hero.physDef > 0) {
-                hero.health = (int) (hero.health - (physAtt - (physAtt * hero.physDef)));
-                if (hero.health < 0) {
-                    return hero.health = 0;
-                } else {
-                    return hero.health;
-                }
-            } else {
-                hero.health = hero.health - physAtt;
-                if (hero.health < 0) {
-                    return hero.health = 0;
-                } else {
-                    return hero.health;
-                }
-            }
-        } else {
-            return hero.health = 0;
-        }
-
-    }
-
-    @Override
     public int magicalAttack(Hero hero) {
         if (hero.health > 0) {
             if (hero.magicDef > 0) {

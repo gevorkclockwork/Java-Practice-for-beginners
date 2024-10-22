@@ -35,17 +35,16 @@ public class Task3 {
         // Перемешать список.
         Collections.shuffle(bands);
 
-        // Вызвать метод groupsAfter2000(List<MusicBand> bands) в методе main() на вашем списке из 10 групп.
-        List<MusicBand> bandsAfter2000 = new ArrayList<>(groupsAfter2000(bands));
-
-        System.out.println("Исходный список:");
+        // Выводим исходный, но уже перемешанный список
+        System.out.println("Исходный, но уже перемешанный список:");
         for (MusicBand band : bands) {
             System.out.println(band.getName() + " " + band.getYear());
         }
         System.out.println();
 
+        // Выводим группы, основанные после 2000
         System.out.println("Группы, основанные после 2000:");
-        for (MusicBand band : bandsAfter2000) {
+        for (MusicBand band : groupsAfter2000(bands)) {
             System.out.println(band.getName() + " " + band.getYear());
         }
 

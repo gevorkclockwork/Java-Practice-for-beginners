@@ -28,11 +28,7 @@ public class User {
     }
 
     public boolean isSubscribed(User user) {
-        if (this.subscriptions.contains(user)) {
-            return true;
-        } else {
-            return false;
-        }
+        return subscriptions.contains(user);
     }
 
     public boolean isFriend(User user) {

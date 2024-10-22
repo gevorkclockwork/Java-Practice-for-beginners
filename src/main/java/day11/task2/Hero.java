@@ -10,4 +10,27 @@ public abstract class Hero {
     int physAtt = 0;
     int magicAtt = 0;
 
+    public int physicalAttack(Hero hero) {
+        if (hero.health > 0) {
+            if (hero.physDef > 0) {
+                hero.health = (int) (hero.health - (physAtt - (physAtt * hero.physDef)));
+                if (hero.health < 0) {
+                    return hero.health = 0;
+                } else {
+                    return hero.health;
+                }
+            } else {
+                hero.health = hero.health - physAtt;
+                if (hero.health < 0) {
+                    return hero.health = 0;
+                } else {
+                    return hero.health;
+                }
+            }
+        } else {
+            return hero.health = 0;
+        }
+    }
+
+
 }

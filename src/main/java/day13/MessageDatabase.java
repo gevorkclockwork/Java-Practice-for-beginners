@@ -24,28 +24,5 @@ public class MessageDatabase {
             }
         }
 
-//        for (Message message : messages) {
-//            if (message.getSender() == u1 && message.getReceiver() == u2) {
-//                messagesUser1.add(message);
-//            } else if (message.getSender() == u2 && message.getReceiver() == u1) {
-//                messagesUser2.add(message);
-//            }
-//        }
-
-//        List<Message> messagesUser1 = new ArrayList<>();
-//        List<Message> messagesUser2 = new ArrayList<>();
-//
-//        for (Message message : messages) {
-//            if (message.getSender() == u1 && message.getReceiver() == u2) {
-//                messagesUser1.add(message);
-//            } else if (message.getSender() == u2 && message.getReceiver() == u1) {
-//                messagesUser2.add(message);
-//            }
-//        }
-//
-
-//
-
-
-        }
     }
+}
