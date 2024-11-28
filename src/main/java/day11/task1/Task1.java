@@ -2,41 +2,41 @@ package day11.task1;
 
 public class Task1 {
     public static void main(String[] args) {
-        // СКЛАД 1
-        System.out.println("СКЛАД 1");
-        Warehouse warehouse = new Warehouse();
-        Picker picker = new Picker(0, false, warehouse);
-        Courier courier = new Courier(0, false, warehouse);
 
-        businessProcess(picker);
-        System.out.println(warehouse.toString());
-        System.out.println(picker.toString());
+        Warehouse warehouse1 = new Warehouse();
 
-        businessProcess(courier);
-        System.out.println(warehouse.toString());
-        System.out.println(courier.toString());
+        Picker picker1 = new Picker(warehouse1);
+        Courier courier1 = new Courier(warehouse1);
 
-        // СКЛАД 2
-        System.out.println();
-        System.out.println("СКЛАД 2");
+        businessProcess(picker1);
+        businessProcess(courier1);
+
+        System.out.println(warehouse1);
+        System.out.println(picker1);
+        System.out.println(courier1);
+
         Warehouse warehouse2 = new Warehouse();
-        Picker picker2 = new Picker(0, false, warehouse2);
-        Courier courier2 = new Courier(0, false, warehouse2);
+        Picker picker2 = new Picker(warehouse2);
+        Courier courier2 = new Courier(warehouse2);
 
-        businessProcess(picker2);
-        System.out.println(warehouse2.toString());
-        System.out.println(picker2.toString());
+        picker2.doWork();
+        courier2.doWork();
 
-        businessProcess(courier2);
-        System.out.println(warehouse2.toString());
-        System.out.println(courier2.toString());
+        System.out.println(warehouse1);
+        System.out.println(picker1);
+        System.out.println(courier1);
+
+        System.out.println(warehouse2);
+        System.out.println(picker2);
+        System.out.println(courier2);
 
     }
 
-    static void businessProcess (Worker worker) {
+    static void businessProcess(Worker worker) {
         for (int i = 0; i < 10000; i++) {
             worker.doWork();
         }
         worker.bonus();
     }
+
 }

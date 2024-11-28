@@ -1,46 +1,39 @@
 package day5;
 
+import java.awt.*;
+
 public class Car {
+
     private String model;
     private String color;
-    private int releaseYear;
-
-    public void setModel(String model) {
-        if (model.isEmpty()) {
-            System.out.println("Модель не указана!");
-        } else {
-            this.model = model;
-        }
-    }
+    private int year;
 
     public String getModel() {
         return model;
     }
 
-    public void setColor(String color) {
-        if (color.isEmpty()) {
-            System.out.println("Цвет не указан!");
-        } else {
-            this.color = color;
-        }
+    public void setModel(String model) {
+        this.model = model;
     }
 
     public String getColor() {
         return color;
     }
 
-    public void setReleaseYear(int releaseYear) {
-        if (releaseYear == 0) {
-            System.out.println("Год выпуска не указан!");
-        } else {
-            this.releaseYear = releaseYear;
-        }
+    public void setColor(String color) {
+        this.color = color;
     }
 
-    public int getReleaseYear() {
-        return releaseYear;
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
     }
 }
+
+
 
 
 

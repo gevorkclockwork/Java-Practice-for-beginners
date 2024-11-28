@@ -1,47 +1,35 @@
 package day12.task5;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Task5 {
     public static void main(String[] args) {
 
-        // Группа "Телепузики"
-        // Создали список в который надо будет добавить объекты класса MusicArtist
+        // Группа 1
         List<MusicArtist> musicArtists1 = new ArrayList<>();
+        musicArtists1.add(new MusicArtist("Иван Иванов", 18));
+        musicArtists1.add(new MusicArtist("Сергей Петров", 23));
+        musicArtists1.add(new MusicArtist("Андрей Киреев", 19));
 
-        // Добавили объекты класса MusicArtist в список
-        musicArtists1.add(new MusicArtist("Иван Иванов", 25));
-        musicArtists1.add(new MusicArtist("Пётр Петров",33));
-        musicArtists1.add(new MusicArtist("Сергей Сергеев", 31));
+        MusicBand metallica = new MusicBand("Metallica", 1998, musicArtists1);
 
-        // Создали объект класса MusicBand и передали в качестве списка участников заполненный список musicArtists1
-        MusicBand musicBand1 = new MusicBand("Телепузики", 2024, musicArtists1);
-
-        // Группа "Свинцовые поросята"
-        // Создали список в который надо будет добавить объекты класса MusicArtist
+        // Группа 2
         List<MusicArtist> musicArtists2 = new ArrayList<>();
+        musicArtists2.add(new MusicArtist("John Petrov", 25));
+        musicArtists2.add(new MusicArtist("Bob Marley", 17));
+        musicArtists2.add(new MusicArtist("Kurt Cobain", 21));
 
-        // Добавили объекты класса MusicArtist в список
-        musicArtists2.add(new MusicArtist("Филипп Филиппов", 25));
-        musicArtists2.add(new MusicArtist("Андрей Андреев", 27));
-        musicArtists2.add(new MusicArtist("Виктор Викторов", 34));
+        MusicBand panzer = new MusicBand("Panzer", 2005, musicArtists2);
 
-        // Создали объект класса MusicBand и передали в качестве списка участников заполненный список musicArtists2
-        MusicBand musicBand2 = new MusicBand("Свинцовые поросята", 2020, musicArtists2);
+        metallica.printMembers();
+        panzer.printMembers();
 
-        // Выводим состав групп ДО слияния
-        System.out.println("Состав ДО слияния:\n");
-        MusicBand.printMusicArtists(musicBand1);
-        MusicBand.printMusicArtists(musicBand2);
+        MusicBand.transferMembers(metallica, panzer);
 
-        // Делаем слияние групп
-        MusicBand.transferMembers(musicBand1, musicBand2);
-
-        // Выводим состав групп ПОСЛЕ слияния
-        System.out.println("Состав ПОСЛЕ слияния:\n");
-        MusicBand.printMusicArtists(musicBand1);
-        MusicBand.printMusicArtists(musicBand2);
-
+        metallica.printMembers();
+        panzer.printMembers();
     }
+
 }

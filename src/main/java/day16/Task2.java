@@ -12,21 +12,23 @@ public class Task2 {
         Random random = new Random();
 
         File file1 = new File("file1.txt");
-        PrintWriter pw1 = new PrintWriter(file1); // PrintWriter нужен, чтобы записывать данные в файл.
+        File file2 = new File("file2.txt");
 
+        PrintWriter pw1 = new PrintWriter(file1);
         for (int i = 0; i < 1000; i++) {
             pw1.println(random.nextInt(100));
         }
         pw1.close();
 
-        Scanner scanner = new Scanner(file1); // Scanner нужен, чтобы считывать данные из файла.
-        File file2 = new File("file2.txt");
+
+        Scanner scanner = new Scanner(file1);
         PrintWriter pw2 = new PrintWriter(file2);
-        int counter = 0;
         int sum = 0;
+        int counter = 0;
         while (scanner.hasNextLine()) {
             sum += Integer.parseInt(scanner.nextLine());
             counter++;
+
             if (counter == 20) {
                 pw2.println(sum / 20.0);
 
@@ -34,20 +36,26 @@ public class Task2 {
                 sum = 0;
             }
         }
-
         pw2.close();
 
         printResult(file2);
+
+
     }
 
-    public static void printResult(File file) throws FileNotFoundException {
+    public static void printResult(File file) {
 
-        Scanner scanner = new Scanner(file);
-        double result = 0;
-        while (scanner.hasNextLine()) {
-            result += Double.parseDouble(scanner.nextLine());
+        try {
+            Scanner scanner = new Scanner(file);
+            double result = 0;
+            while (scanner.hasNextLine()) {
+                result += Double.parseDouble(scanner.nextLine());
+            }
+            System.out.println((int) result);
+        } catch (FileNotFoundException e) {
+            System.out.println("Файл не найден!");
         }
-        System.out.println((int)result);
+
     }
 
 

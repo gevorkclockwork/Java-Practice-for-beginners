@@ -6,15 +6,15 @@ import java.util.List;
 public class Task2 {
     public static void main(String[] args) {
 
-        List<Integer> arrayList = new ArrayList<>();
-        Task2.fillTheList(0, 30, arrayList);
-        Task2.fillTheList(300, 350, arrayList);
-        System.out.println(arrayList);
+        List<Integer> numbersList = new ArrayList<>();
+        fill(0, 30, numbersList);
+        fill(300, 350, numbersList);
+        System.out.println(numbersList);
 
     }
 
-    public static void fillTheList(int lowerBound, int upperBound, List<Integer> list) {
-        for (int i = lowerBound; i <= upperBound; i++) {
+    public static void fill(int startNumber, int endNumber, List<Integer> list) {
+        for (int i = startNumber; i <= endNumber; i++) {
             if (i % 2 == 0) {
                 list.add(i);
             }

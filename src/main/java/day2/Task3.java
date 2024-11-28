@@ -1,22 +1,25 @@
 package day2;
 
+import com.sun.source.tree.IfTree;
+
 import java.util.Scanner;
 
 public class Task3 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int a = scanner.nextInt();
-        int b = scanner.nextInt();
+
+        Scanner in = new Scanner(System.in);
+        int a = in.nextInt();
+        int b = in.nextInt();
 
         if (a >= b) {
             System.out.println("Некорректный ввод");
         } else {
-            a++;
-            while (a < b) {
-                if (a % 5 == 0 && a % 10 != 0) {
-                    System.out.print(a + " ");
+            int c = a + 1;
+            while (c < b) {
+                if (c % 5 == 0 && c % 10 != 0) {
+                    System.out.print(c + " ");
                 }
-                a++;
+                c++;
             }
         }
 

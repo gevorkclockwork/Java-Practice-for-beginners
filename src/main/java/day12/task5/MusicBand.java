@@ -6,53 +6,37 @@ public class MusicBand {
 
     private String name;
     private int year;
-    private List<MusicArtist> musicArtists; // список участников группы
+    private List<MusicArtist> members;
 
-    public MusicBand(String name, int year) {
+    public MusicBand(String name, int year, List<MusicArtist> members) {
         this.name = name;
         this.year = year;
-    }
-
-    // Доработано ДОБАВЛЕНИЕ участников группы списком: третий аргумент метода
-    public MusicBand(String name, int year, List<MusicArtist> musicArtists) {
-        this.name = name;
-        this.year = year;
-        this.musicArtists = musicArtists;
+        this.members = members;
     }
 
     public List<MusicArtist> getMembers() {
-        return musicArtists;
+        return members;
     }
 
-    // Доработано УДАЛЕНИЕ участников группы списком.
-    // Метод вызывается у объекта MusicBand из состава участников которого, удаляется переданный список участников.
-    public List<MusicArtist> deleteMembers(List<MusicArtist> musicArtist) {
-        for (MusicArtist member : musicArtist) {
-            this.musicArtists.remove(member);
-        }
-        return musicArtists;
+    public static void transferMembers(MusicBand musicBand1, MusicBand musicBand2) {
+        musicBand2.members.addAll(musicBand1.getMembers());
+        musicBand1.members.removeAll(musicBand1.getMembers());
     }
 
-    public static List<MusicArtist> transferMembers(MusicBand bandA, MusicBand bandB) {
-        bandB.getMembers().addAll(bandA.getMembers());
-        bandA.getMembers().removeAll(bandA.getMembers());
-        return bandB.getMembers();
-    }
-
-    public static void printMusicArtists(MusicBand band) {
-        System.out.println("Группа \"" + band.getName() + "\":");
-        for (MusicArtist musicArtist : band.getMembers()) {
-            System.out.println(musicArtist.getName() + " " + musicArtist.getAge() + " лет.");
-        }
-        System.out.println();
-    }
-
-
-    public String getName() {
-        return name;
+    public void printMembers() {
+        System.out.println(members);
     }
 
     public int getYear() {
         return year;
     }
+
+    @Override
+    public String toString() {
+        return "MusicBand{" +
+                "name='" + name + '\'' +
+                ", year=" + year +
+                '}';
+    }
+
 }

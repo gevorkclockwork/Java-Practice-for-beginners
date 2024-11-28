@@ -1,23 +1,24 @@
 package day9.Task2;
 
 public class Triangle extends Figure {
-    private double length1, length2, length3;
 
-    public Triangle(String color, double length1, double length2, double length3) {
+    private double sideOne, sideTwo, sideThree;
+
+    public Triangle(String color, double sideOne, double sideTwo, double sideThree) {
         super(color);
-        this.length1 = length1;
-        this.length2 = length2;
-        this.length3 = length3;
+        this.sideOne = sideOne;
+        this.sideTwo = sideTwo;
+        this.sideThree = sideThree;
     }
 
     @Override
     public double area() {
         double halfPerimeter = perimeter() / 2;
-        return Math.sqrt(halfPerimeter * ((halfPerimeter - length1) * (halfPerimeter - length2) * (halfPerimeter - length3)));
+        return Math.sqrt(halfPerimeter * (halfPerimeter - sideOne) * (halfPerimeter - sideTwo) * (halfPerimeter - sideThree));
     }
 
     @Override
     public double perimeter() {
-        return length1 + length2 + length3;
+        return sideOne + sideTwo + sideThree;
     }
 }

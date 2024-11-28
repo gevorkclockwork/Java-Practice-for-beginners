@@ -1,6 +1,9 @@
 package day12.task5;
 
+import day12.task4.MusicBand;
+
 public class MusicArtist {
+
     private String name;
     private int age;
 
@@ -9,11 +12,8 @@ public class MusicArtist {
         this.age = age;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
+    @Override
+    public String toString() {
+        return name + " " + age;
     }
 }

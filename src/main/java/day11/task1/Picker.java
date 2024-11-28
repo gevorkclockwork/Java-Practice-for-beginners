@@ -1,49 +1,51 @@
 package day11.task1;
 
 public class Picker implements Worker {
+
     private int salary;
     private boolean isPayed;
+    private static final int SUM_SALARY = 80;
+    private static final int BONUS = 70_000;
     private Warehouse warehouse;
-
-    public int getSalary() {
-        return salary;
-    }
-
-    public boolean getIsPayed() {
-        return isPayed;
-    }
-
-    public String toString() {
-        return "Заработная плата сборщика: " + salary + ", был выплачен бонус или нет: " + isPayed;
-    }
-
-    public Picker(int salary, boolean isPayed, Warehouse warehouse) {
-        this.salary = salary;
-        this.isPayed = isPayed;
-        this.warehouse = warehouse;
-    }
 
     public Picker(Warehouse warehouse) {
         this.warehouse = warehouse;
     }
 
-    public void doWork() {
-        salary += 80;
-        warehouse.countPickedOrders++;
+    public int getSalary() {
+        return salary;
     }
 
-    public void bonus() {
-        if (isPayed == false) {
-            if (warehouse.countPickedOrders == 10000) {
-                salary += 70000;
-                isPayed = true;
-            } else {
-                System.out.println("Бонус пока не доступен");
-            }
-        } else {
-            System.out.println("Бонус уже был выплачен");
-        }
+    public boolean isPayed() {
+        return isPayed;
+    }
 
+    @Override
+    public String toString() {
+        return "Picker{" +
+                "salary=" + salary +
+                ", isPayed=" + isPayed +
+                '}';
+    }
+
+    @Override
+    public void doWork() {
+        salary += SUM_SALARY;
+        warehouse.incrementPickedOrders();
+    }
+
+    @Override
+    public void bonus() {
+        if (isPayed) {
+            System.out.println("Бонус уже был выплачен");
+            return;
+        }
+        if (warehouse.getCountPickedOrders() < 10_000) {
+            System.out.println("Бонус пока не доступен");
+            return;
+        }
+        salary += BONUS;
+        isPayed = true;
     }
 
 

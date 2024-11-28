@@ -7,13 +7,15 @@ import java.util.List;
 public class Task1 {
     public static void main(String[] args) {
 
-        List<String> arrayList = new ArrayList<>(Arrays.asList("Audi", "BMW", "Mercedes-Benz", "Toyota", "Honda"));
-        System.out.println(arrayList);
+        List<String> cars = new ArrayList<>(Arrays.asList("Audi", "BMW", "Porshe", "Toyota", "Honda"));
+        System.out.println(cars);
 
-        arrayList.add(2, "Tesla");
-        System.out.println(arrayList);
 
-        arrayList.remove(arrayList.get(0));
-        System.out.println(arrayList);
+        cars.add(2, "Tesla");
+        System.out.println(cars);
+
+        cars.remove(0);
+        System.out.println(cars);
+
     }
 }

@@ -6,14 +6,8 @@ public class MusicBand {
 
     private String name;
     private int year;
-    private List<String> members; // список участников группы
+    private List<String> members;
 
-    public MusicBand(String name, int year) {
-        this.name = name;
-        this.year = year;
-    }
-
-    // Доработано ДОБАВЛЕНИЕ участников группы списком: третий аргумент метода
     public MusicBand(String name, int year, List<String> members) {
         this.name = name;
         this.year = year;
@@ -24,35 +18,25 @@ public class MusicBand {
         return members;
     }
 
-    // Доработано УДАЛЕНИЕ участников группы списком.
-    // Метод вызывается у объекта MusicBand из состава участников которого, удаляется переданный список участников.
-    public List<String> deleteMembers(List<String> members) {
-        for (String member : members) {
-            this.members.remove(member);
-        }
-        return members;
+    public static void transferMembers(MusicBand musicBand1, MusicBand musicBand2) {
+        musicBand2.members.addAll(musicBand1.getMembers());
+        musicBand1.members.removeAll(musicBand1.getMembers());
     }
 
-    public static List<String> transferMembers(MusicBand bandA, MusicBand bandB) {
-        bandB.getMembers().addAll(bandA.getMembers());
-        bandA.getMembers().removeAll(bandA.getMembers());
-        return bandB.getMembers();
-    }
-
-    public static void printMembers(MusicBand band) {
-        System.out.println("Группа \"" + band.getName() + "\":");
-        for (String member : band.getMembers()) {
-            System.out.println(member);
-        }
-        System.out.println();
-    }
-
-
-    public String getName() {
-        return name;
+    public void printMembers() {
+        System.out.println(members);
     }
 
     public int getYear() {
         return year;
     }
+
+    @Override
+    public String toString() {
+        return "MusicBand{" +
+                "name='" + name + '\'' +
+                ", year=" + year +
+                '}';
+    }
+
 }

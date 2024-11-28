@@ -1,35 +1,22 @@
 package day11.task2;
 
-public class Magician extends Hero implements PhysAttack, MagicAttack {
+public class Magician extends Hero implements MagicAttack {
+
+    int magicAtt = 20;
 
     public Magician() {
         physAtt = 5;
-        magicAtt = 20;
         magicDef = 0.8;
     }
 
     @Override
-    public int magicalAttack(Hero hero) {
-        if (hero.health > 0) {
-            if (hero.magicDef > 0) {
-                hero.health = (int) (hero.health - (magicAtt - (magicAtt * hero.magicDef)));
-                if (hero.health < 0) {
-                    return hero.health = 0;
-                } else {
-                    return hero.health;
-                }
-            } else {
-                hero.health = hero.health - magicAtt;
-                if (hero.health < 0) {
-                    return hero.health = 0;
-                } else {
-                    return hero.health;
-                }
-            }
+    public void magicalAttack(Hero hero) {
+        double attackScore = magicAtt * (1 - hero.magicDef);
+        if (hero.health - attackScore < MIN_HEALTH) {
+            hero.health = MIN_HEALTH;
         } else {
-            return hero.health = 0;
+            hero.health -= attackScore;
         }
-
     }
 
     @Override
@@ -38,4 +25,6 @@ public class Magician extends Hero implements PhysAttack, MagicAttack {
                 "health=" + health +
                 '}';
     }
+
 }
+

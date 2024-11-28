@@ -1,8 +1,6 @@
 package day11.task2;
 
-import day11.task1.Warehouse;
-
-public class Warrior extends Hero implements PhysAttack {
+public class Warrior extends Hero {
 
     public Warrior() {
         physAtt = 30;

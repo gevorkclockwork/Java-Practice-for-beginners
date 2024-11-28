@@ -1,10 +1,9 @@
 package day11.task2;
 
-public class Paladin extends Hero implements PhysAttack, Healer {
+public class Paladin extends Hero implements Healer {
 
     static final int HEAL_AMOUNT = 25;
-    static final int HEAL_TEAMMATE_AMOUNT = 25;
-
+    static final int HEAL_TEAMMATE_AMOUNT = 10;
 
     public Paladin() {
         physAtt = 15;
@@ -13,28 +12,21 @@ public class Paladin extends Hero implements PhysAttack, Healer {
     }
 
     @Override
-    public int healHimself() {
+    public void healHimself() {
         if (health + HEAL_AMOUNT > MAX_HEALTH) {
             health = MAX_HEALTH;
         } else {
             health += HEAL_AMOUNT;
         }
-        return health;
     }
-
+ 
     @Override
-    public int healTeammate(Hero hero) {
-        if (hero.health == MAX_HEALTH) {
-            return hero.health;
-        } else if (hero.health < MAX_HEALTH) {
-            hero.health += HEAL_TEAMMATE_AMOUNT;
-            if (hero.health > MAX_HEALTH) {
-                hero.health = MAX_HEALTH;
-            }
-        } else {
+    public void healTeammate(Hero hero) {
+        if (hero.health + HEAL_TEAMMATE_AMOUNT > MAX_HEALTH) {
             hero.health = MAX_HEALTH;
+        } else {
+            hero.health += HEAL_TEAMMATE_AMOUNT;
         }
-        return hero.health;
     }
 
     @Override

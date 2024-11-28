@@ -1,36 +1,27 @@
 package day11.task2;
 
-public abstract class Hero {
+public abstract class Hero implements PhysAttack {
 
     static final int MAX_HEALTH = 100;
+    static final int MIN_HEALTH = 0;
 
-    int health = 100;
-    double physDef = 0;
-    double magicDef = 0;
-    int physAtt = 0;
-    int magicAtt = 0;
+    int health;
+    int physAtt;
+    double physDef;
+    double magicDef;
 
-    public int physicalAttack(Hero hero) {
-        if (hero.health > 0) {
-            if (hero.physDef > 0) {
-                hero.health = (int) (hero.health - (physAtt - (physAtt * hero.physDef)));
-                if (hero.health < 0) {
-                    return hero.health = 0;
-                } else {
-                    return hero.health;
-                }
-            } else {
-                hero.health = hero.health - physAtt;
-                if (hero.health < 0) {
-                    return hero.health = 0;
-                } else {
-                    return hero.health;
-                }
-            }
-        } else {
-            return hero.health = 0;
-        }
+    public Hero() {
+        health = 100;
     }
 
+    @Override
+    public void physicalAttack(Hero hero) {
+        double attackScore = physAtt * (1 - hero.physDef);
+        if (hero.health - attackScore < MIN_HEALTH) {
+            hero.health = MIN_HEALTH;
+        } else {
+            hero.health -= attackScore;
+        }
+    }
 
 }

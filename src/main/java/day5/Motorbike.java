@@ -1,52 +1,28 @@
 package day5;
 
 public class Motorbike {
+
     private String model;
     private String color;
-    private int releaseYear;
+    private int year;
 
-    public Motorbike(String model, String color, int releaseYear) {
+    public Motorbike(String model, String color, int year) {
         this.model = model;
         this.color = color;
-        this.releaseYear = releaseYear;
-    }
-
-    public void setModel(String model) {
-        if (model.isEmpty()) {
-            System.out.println("Модель не указана!");
-        } else {
-            this.model = model;
-        }
+        this.year = year;
     }
 
     public String getModel() {
         return model;
     }
 
-    public void setColor(String color) {
-        if (color.isEmpty()) {
-            System.out.println("Цвет не указан!");
-        } else {
-            this.color = color;
-        }
-    }
-
     public String getColor() {
         return color;
     }
 
-    public void setReleaseYear(int releaseYear) {
-        if (releaseYear == 0) {
-            System.out.println("Год выпуска не указан!");
-        } else {
-            this.releaseYear = releaseYear;
-        }
+    public int getYear() {
+        return year;
     }
-
-    public int getReleaseYear() {
-        return releaseYear;
-    }
-
 
 }
 

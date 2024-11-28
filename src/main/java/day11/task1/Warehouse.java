@@ -4,8 +4,8 @@ import day11.task2.Warrior;
 
 public class Warehouse {
 
-    protected int countPickedOrders;
-    protected int countDeliveredOrders ;
+    private int countPickedOrders;
+    private int countDeliveredOrders ;
 
     public int getCountPickedOrders() {
         return countPickedOrders;
@@ -15,8 +15,20 @@ public class Warehouse {
         return countDeliveredOrders;
     }
 
+    public void incrementPickedOrders() {
+        countPickedOrders++;
+    }
+
+    public void incrementDeliveredOrders() {
+        countDeliveredOrders++;
+    }
+
+    @Override
     public String toString() {
-        return "Количество собранных заказов: " + countPickedOrders + ", количество доставленных заказов: " + countDeliveredOrders;
+        return "Warehouse{" +
+                "countPickedOrders=" + countPickedOrders +
+                ", countDeliveredOrders=" + countDeliveredOrders +
+                '}';
     }
 }
 

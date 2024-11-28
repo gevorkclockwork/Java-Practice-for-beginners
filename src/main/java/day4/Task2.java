@@ -4,40 +4,35 @@ import java.util.Random;
 
 public class Task2 {
     public static void main(String[] args) {
-        Random random = new Random(); // Создали объект класса Random
-        int[] numbers = new int[100]; // Создали одномерный массив на 100 элементов
 
-        for (int i = 0; i < numbers.length; i++) { // Запустили цикл от первого до последнего элемента массива
-            numbers[i] = random.nextInt(10000); // В качестве значения текущего элемента устанавливаем случайное число от 0 до 999 включительно
+        Random rand = new Random();
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        int countNumbersEnding0 = 0;
+        int sumNumbersEnding0 = 0;
+
+        int[] numbers = new int[100];
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = rand.nextInt(10000);
         }
 
-        int max = numbers[0]; // В качестве максимального числа будем считать значение первого элемента массива
-        int min = numbers[0]; // В качестве минимального числа будем считать значение первого элемента массива
-        int numsEndingsZero = 0; // Переменная для подсчета количества чисел, оканчивающихся 0
-        int sumNumbersEndingsZero = 0; // Переменная для подсчета суммы чисел, оканчивающихся 0
-
-        for (int num : numbers) {
-            if (num > max) { // Если значение тек элемента массива больше чем максимальное число, тогда
-                max = num; // максимальному числу присваиваем значение тек элемента массива.
+        for (int number : numbers) {
+            if (number > max) {
+                max = number;
             }
-            if (num < min) { // Если значение тек элемента массива меньше чем минимальное число, тогда
-                min = num; // минимальному числу присваиваем значение тек элемента массива.
+            if (number < min) {
+                min = number;
             }
-            if (num % 10 == 0) { // Если значение тек элемента массива делится без остатка на 0, тогда
-                numsEndingsZero++; // переменную numsEndingsZero увеличиваем на единицу.
+            if (number % 10 == 0) {
+                countNumbersEnding0++;
+                sumNumbersEnding0 += number;
             }
-            if (num % 10 == 0) { // Если значение тек элемента массива делится без остатка на 0, тогда
-                sumNumbersEndingsZero += num; // // к переменной sumNumbersEndingsZero прибавляем num.
-            }
-
         }
-        System.out.println("Наибольший элемент массива: " + max);
-        System.out.println("Наименьший элемент массива: " + min);
-        System.out.println("Количество элементов массива, оканчивающихся на 0: " + numsEndingsZero);
-        System.out.println("Сумма элементов массива, оканчивающихся на 0: " + sumNumbersEndingsZero);
 
-
-
+        System.out.println(max);
+        System.out.println(min);
+        System.out.println(countNumbersEnding0);
+        System.out.println(sumNumbersEnding0);
 
     }
 }

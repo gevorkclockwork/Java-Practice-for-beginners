@@ -1,39 +1,33 @@
 package day7;
 
+import javax.xml.namespace.QName;
+
 public class Airplane {
-    public String manufacturer;
-    public int year;
-    public int length;
-    public int weight;
-    public int fuel;
+
+    private String manufacturer;
+    private int year;
+    private int length;
+    private int weight;
+    private int fuel;
 
     public Airplane(String manufacturer, int year, int length, int weight) {
         this.manufacturer = manufacturer;
         this.year = year;
         this.length = length;
         this.weight = weight;
-        this.fuel = 0;
-    }
-
-    public static void compareAirplanes(Airplane airplane1, Airplane airplane2) {
-        if (airplane1.getLength() > airplane2.getLength()) {
-            //System.out.println("Самолет " + airplane1.getManufacturer() + " длиннее");
-            System.out.println("Первый самолет длиннее");
-        } else if (airplane1.getLength() < airplane2.getLength()) {
-            //System.out.println("Самолет " + airplane2.getManufacturer() + " длиннее");
-            System.out.println("Второй самолет длиннее");
-        } else {
-            //System.out.println("Длина самолета " + airplane1.getManufacturer() + " равна длина самолета " + airplane2.getManufacturer());
-            System.out.println("Длины самолетов равны");
-        }
+        fuel = 0;
     }
 
     public void info() {
-        System.out.println("Изготовитель: " + manufacturer + ", год выпуска: " + year + ", длина: " + length + ", вес: " + weight + ", количество топлива в баке: " + fuel);
+        System.out.println("Изготовитель: " + manufacturer +
+                ", год выпуска: " + year +
+                ", длина: " + length +
+                ", вес: " + weight +
+                ", количество топлива в баке: " + fuel);
     }
 
     public void fillUp(int n) {
-        this.fuel += n;
+        fuel += n;
     }
 
     public void setManufacturer(String manufacturer) {
@@ -64,9 +58,15 @@ public class Airplane {
         return length;
     }
 
-    public String getManufacturer() {
-        return manufacturer;
+    public static void compareAirplanes(Airplane airplane1, Airplane airplane2) {
+        if (airplane1.getLength() > airplane2.getLength()) {
+            System.out.println("Первый самолет длиннее");
+        } else if (airplane1.getLength() < airplane2.getLength()) {
+            System.out.println("Второй самолет длиннее");
+        } else {
+            System.out.println("Длины самолетов равны");
+        }
     }
 
-
 }
+

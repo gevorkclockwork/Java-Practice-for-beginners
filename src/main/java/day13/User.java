@@ -3,7 +3,6 @@ package day13;
 import java.util.ArrayList;
 import java.util.List;
 
-import static day13.MessageDatabase.addNewMessage;
 
 public class User {
 
@@ -12,10 +11,10 @@ public class User {
 
     public User(String username) {
         this.username = username;
-        this.subscriptions = new ArrayList<>();
+        subscriptions = new ArrayList<>();
     }
 
-    public String getUsernameName() {
+    public String getUsername() {
         return username;
     }
 
@@ -24,7 +23,7 @@ public class User {
     }
 
     public void subscribe(User user) {
-        this.subscriptions.add(user);
+        subscriptions.add(user);
     }
 
     public boolean isSubscribed(User user) {
@@ -32,11 +31,8 @@ public class User {
     }
 
     public boolean isFriend(User user) {
-        if (this.subscriptions.contains(user) && user.getSubscriptions().contains(this)) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.isSubscribed(user) && user.isSubscribed(this);
+        //return subscriptions.contains(user) && user.subscriptions.contains(this); - или можно реализовать как в isSubscribed
     }
 
     public void sendMessage(User user, String text) {
@@ -45,7 +41,10 @@ public class User {
 
     @Override
     public String toString() {
-        return getUsernameName();
+        return "User{" +
+                "username='" + username + '\'' +
+                '}';
     }
+
 }
 

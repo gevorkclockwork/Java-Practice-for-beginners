@@ -4,24 +4,26 @@ import java.util.Scanner;
 
 public class Task1 {
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
-        String stop = "Stop";
+        String city;
 
         while (true) {
-            String city = scanner.nextLine();
+            city = scanner.nextLine();
 
-            if (city.equals(stop))
+            if (city.equals("Stop")) {
                 break;
+            }
 
             switch (city) {
                 case "Москва":
                 case "Владивосток":
-                case "Ростов":
+                case "Ростов ":
                     System.out.println("Россия");
                     break;
                 case "Рим":
                 case "Милан":
-                case "Турин":
+                case "Турин ":
                     System.out.println("Италия");
                     break;
                 case "Ливерпуль":
@@ -31,12 +33,13 @@ public class Task1 {
                     break;
                 case "Берлин":
                 case "Мюнхен":
-                case "Кёльн":
+                case "Кёльн ":
                     System.out.println("Германия");
                     break;
                 default:
                     System.out.println("Неизвестная страна");
             }
+
         }
     }
 }
